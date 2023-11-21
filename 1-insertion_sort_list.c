@@ -8,20 +8,20 @@ void swap_list_nodes(listint_t **head, listint_t *node_a, listint_t *node_b);
  */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *inner = *list;
+	listint_t *curr = *list;
 
 	if (!*list)
 		return;
-	while (inner->next)
+	while (curr->next)
 	{
-		if (inner->n > inner->next->n)
+		if (curr->n > curr->next->n)
 		{
-			swap_list_nodes(list, inner, inner->next);
+			swap_list_nodes(list, curr, curr->next);
 			print_list(*list);
-			inner = *list;
+			curr = *list;
 		}
 		else
-			inner = inner->next;
+			curr = curr->next;
 	}
 }
 /**
